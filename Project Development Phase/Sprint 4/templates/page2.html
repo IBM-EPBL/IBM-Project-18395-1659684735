@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CHRONIC KIDNEY DISEASE PREDICTION</title>
+    <style>
+        input,label {
+    cursor: pointer;
+    margin: .3rem;
+    padding-right: 5rem;
+}
+input[type=text],[type=number],[type=submit] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+input[type="radio"]:focus {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.2rem;
+  margin-left:10px;
+  font-size: large;
+}
+
+button {
+
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+  }
+  .btn{
+    display: flex;
+    width: 300px; 
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 250px;
+    margin-right: 20px;
+
+  }
+  h1{
+    text-align: center;
+  }
+  form {
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 15rem;
+  }
+ 
+  .formbox{
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 7);
+  color: rgb(14, 1, 1); 
+  font-size: larger;
+  font-weight: 500;
+  background:rgba(0, 0, 0, 0.1)
+}
+
+#myvedio {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the required details</h1> 
+        <div class="formbox">
+            
+                
+            <video autoplay loop muted plays-inline id="myvedio">
+                <source src="{{ url_for('static',filename='styles/testing.mp4') }}" type="video/mp4">
+            </video>
+             
+        <form action="/page3" method="POST">
+       
+   
+    <!-- Name    -->
+    <div>
+        <h3>Name</h3>
+        <input type="text" name="fullname" id="fullname">
+    </div>
+    <!-- Age -->
+    <div>
+        <h3>Age</h3>
+        <input type="number" name="age" id="age" >
+    </div>
+    <!-- Blood Pressure -->
+    <div>
+        <h3>Blood Pressure</h3>
+        <input type="number" name="bp" id="bp">
+    </div>
+    <!-- Urinary Specific gravity -->
+    <div>
+        <h3>Urinary Specific gravity</h3>
+        <input type="number" name="sg" id="sg" step="any">
+    </div>
+    <!-- Acute leukaemia -->
+    <div>
+        <h3>Acute leukaemia</h3>
+        <input type="number" name="al" id="al">
+    </div>
+    <!-- Secretory unit -->
+    <div>
+        <h3>Secretory unit</h3>
+        <input type="number" name="su" id="su">
+    </div>
+    <!-- Red Blood Cells -->
+    <div>
+        <h3>Red Blood Cells</h3>
+        
+        <input type="radio" name="rbc" id="rbcn" value="normal">
+
+        <label for="rbcn">Normal</label>
+        <input type="radio" name="rbc" id="rbca" value="abnormal">
+        <label for="rbca">Abnormal</label>
+    </div>
+    <!-- Platelet Count -->
+    <div>
+
+        <h3>Platelet Count</h3>
+        <input type="radio" name="pc" id="pcn" value="normal">
+        <label for="pcn">Normal</label>
+        <input type="radio" name="pc" id="pca" value="abnormal">
+        <label for="pca">Abnormal</label>
+    </div>
+    <!-- prothrombin Complex concentrate -->
+    <div>
+        <h3>Prothrombin Complex Concentrate</h3>
+        <input type="radio" name="pcc" id="pccp" value="Present">
+        <label for="pccp">Present</label>
+        <input type="radio" name="pcc" id="pccn" value="Not Present">
+        <label for="pccn">Not Present</label>
+    </div>
+    <!-- Bronchical Asthma -->
+    <div>
+        <h3>Bronchical Asthma</h3>
+        <input type="radio" name="ba" id="bap" value="Present">
+        <label for="bap">Present</label>
+        <input type="radio" name="ba" id="ban" value="Not Present">
+        <label for="ban">Not Present</label>
+    </div>
+    <!-- Blood glucose regulator -->
+    <div>
+        <h3>Blood glucose regulator</h3>
+        <input type="number" name="bgr" id="bgr">
+    </div>
+    <!-- Bandelette terms -->
+    <div>
+        <h3>Bandelette terms</h3>
+        <input type="number" name="bt" id="bt">
+    </div>
+    <!-- subcutaneous -->
+    <div>
+        <h3>Subcutaneous</h3>
+        <input type="number" name="sub" id="sub" step ="any">
+    </div>
+    <!-- Segregation of  duties -->
+    <div>
+        <h3>Segregation of  duties</h3>
+        <input type="number" name="seg" id="seg">
+    </div>
+    <!-- Pot -->
+    <div>
+        <h3>POT</h3>
+        <input type="number" name="pot" id="pot" step="any">
+    </div>
+    <!-- haemoglobin -->
+    <div>
+        <h3>Haemoglobin</h3>
+        <input type="number" name="hemo" id="hemo" step="any">
+    </div>
+    <!-- Pneumococcal conjugate vaccine -->
+    <div>
+        <h3>Pneumococcal conjugate vaccine</h3>
+        <input type="number" name="pcv" id="pcv">
+    </div>
+    <!-- white blood cell count  -->
+    <div>
+        <h3>White blood cell count </h3>
+        <input type="number" name="wc" id="wc">
+    </div>
+    <!-- red blood cell count -->
+    <div>
+        <h3>RC</h3>
+        <input type="number" name="rc" id="rc" step="any"> 
+    </div>
+    <!-- hypertension -->
+    <div>
+        <h3>Hypertension</h3>
+        <input type="radio" name="htn" id="htny" value="yes">
+        <label for="htny">Yes</label>
+        <input type="radio" name="htn" id="htnn" value="no">
+        <label for="htnn">No</label> 
+    </div>
+    <!-- diabetes mellitus -->
+    <div>
+        <h3>DM</h3>
+        <input type="radio" name="dm" id="dmy" value="yes">
+        <label for="dmy">Yes</label>
+        <input type="radio" name="dm" id="dmn" value="no">
+        <label for="dmn">No</label> 
+    </div>
+    <!-- coronary artery disease -->
+    <div>
+        <h3>Coronary artery disease</h3>
+        <input type="radio" name="cad" id="cady" value="yes">
+        <label for="cady">Yes</label>
+        <input type="radio" name="cad" id="cadn" value="no">
+        <label for="cadn">No</label> 
+    </div>
+    <!-- appetite -->
+    <div>
+        <h3>Appetite</h3>
+        <input type="radio" name="appet" id="appetg" value="good">
+        <label for="appetg">Good</label>
+        <input type="radio" name="appet" id="appetp" value="poor">
+        <label for="appetp">Poor</label> 
+    </div>
+    <!-- pulmonary embolism -->
+    <div>
+        <h3>Pulmonary embolism</h3>
+        <input type="radio" name="pe" id="pey" value="yes">
+        <label for="cady">Yes</label>
+        <input type="radio" name="pe" id="pen" value="no">
+        <label for="pen">No</label> 
+    </div>
+    <!-- anemia -->
+    <div>
+        <h3>Anemia</h3>
+        <input type="radio" name="ane" id="aney" value="yes">
+        <label for="aney">Yes</label>
+        <input type="radio" name="ane" id="anen" value="no">
+        <label for="anen">No</label> 
+    </div>
+
+    <div class="btn">
+    <button type="submit">Submit</button>
+</div>
+</form>
+
+</div>
+
+</div>
+</body>
+</html>
